@@ -1429,6 +1429,9 @@
   .h-\[calc\(100\%-1rem\)\] {
     height: calc(100% - 1rem);
   }
+  .h-dvh {
+    height: 100dvh;
+  }
   .max-h-full {
     max-height: 100%;
   }
@@ -1529,6 +1532,9 @@
   }
   .w-64 {
     width: calc(var(--spacing) * 64);
+  }
+  .w-dvw {
+    width: 100dvw;
   }
   .w-full {
     width: 100%;
