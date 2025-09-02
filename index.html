@@ -1,56 +1,74 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MERCOENERGY - Comparador</title>
     <link rel="stylesheet" href="./SRC/output.css" />
+    <title>MERCOENERGY-Comparador</title>
     <link rel="icon" type="image/x-icon" href="./SRC/IMG/mercoguadiana_grupo_logo.png" />
-    <script src="https://unpkg.com/flowbite@latest/dist/js"></script>
+    <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
     <script src="./SRC/index.js" defer></script>
   </head>
-  <body class="bg-gray-100 dark:bg-gray-900">
-
-    <!-- NAVBAR -->
-    <nav class="bg-white dark:bg-green-300 border-b border-gray-200">
-      <div class="max-w-screen-xl mx-auto flex items-center justify-between p-4">
-        <a-x-3 rtl:space-x-reverse">
-          <img src="./SRC/IMG/MERCOENERGY-LOGO.png" class="h-12 w-auto" alt="Logo" />
-          <span class="font-bold text-2xl text-gray-800">━━ COMPARADOR</span>
+  <body>
+    <nav class="bg-white border-gray-200 dark:bg-green-300 w-full">
+      <div
+        class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4"
+      >
+        <a
+          href=""
+          class="flex items-center space-x-3 rtl:space-x-reverse"
+        >
+          <img
+            src="./SRC/IMG/MERCOENERGY-LOGO.png"
+            class="h-12"
+            alt="Flowbite Logo"
+          />
+          <span class="font-bold text-2xl text-gray-800"> ━━ COMPARADOR</span>
         </a>
-        <!-- Botón hamburguesa -->
-        <button data-collapse-toggle="navbar-menu" type="button" class="md:hidden inline-flex items-center p-2 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none" aria-controls="navbar-menu" aria-expanded="false">
-          <span class="sr-only">Abrir menú</span>
-          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M3 5h14M3 10h14M3 15h14" clip-rule="evenodd"></path>
-          </svg>
-        </button>
       </div>
-
-      <!-- Menú de navegación -->
-      <div class="hidden md:block" id="navbar-menu">
-        <div class="max-w-screen-xl mx-auto px-4 py-3">
-          <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8 text-sm font-medium">
-            <li><a href="https://mercoguadiana.es/" class="text-gray-900 dark:text-white hover: dark:text-white hover:underline">Nosotros</a></li>
-            <li><a href="#" class="text-gray-900 dark:text-white hover:underline">Team</a></li>
-            <li><a href="#" class="text-gray-900 dark:text-white hover:underline">Features</a></li>
+    </nav>
+    <nav class="bg-gray-50 dark:bg-green-700 w-full">
+      <div class="max-w-screen-xl w-dvw px-4 py-3 mx-auto">
+        <div class="flex items-center">
+          <ul
+            class="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm"
+          >
+            <li>
+              <a
+                href="https://mercoguadiana.es/"
+                class="text-gray-900 dark:text-white hover:underline"
+                aria-current="page"
+                >Inicio</a
+              >
+            </li>
+            <li>
+              <a href="#" class="text-gray-900 dark:text-white hover:underline"
+                >Company</a
+              >
+            </li>
+            <li>
+              <a href="#" class="text-gray-900 dark:text-white hover:underline"
+                >Team</a
+              >
+            </li>
+            <li>
+              <a href="#" class="text-gray-900 dark:text-white hover:underline"
+                >Features</a
+              >
+            </li>
           </ul>
         </div>
       </div>
     </nav>
-
-    <!-- CONTENIDO PRINCIPAL -->
-    <main class="container mx-auto px-4 py-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="bg-gray-50 dark:bg-green-700 w-full mt-8">
-      <div class="max-w-screen-xl mx-auto px-4 py-4 text-center">
-        <p class="text-gray-900 dark:text-white text-sm">
-          &copy; 2025 MERCOENERGY. Todos los derechos reservados.
-        </p>
+    <div class="container mx-auto m-8 px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 h-dvh"></div>
+    <footer class="bg-gray-50 dark:bg-green-700 bottom-0 w-full">
+      <div class="max-w-screen-xl px-4 py-3 mx-auto">
+        <div class="flex items-center">
+          <p class="text-gray-900 dark:text-white text-sm">
+            &copy; 2025 MERCOENERGY. All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
-
   </body>
 </html>

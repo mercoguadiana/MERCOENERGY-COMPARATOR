@@ -75,7 +75,8 @@ async function getPetrolStations() {
     );
 
     div.innerHTML = `
-      <h1 class="text-lg font-semibold mb-2">${gasolinera.direction}</h1>
+      
+      <h2 class="mt-4 font-bold text-center">${gasolinera.logo} - ${gasolinera.localidad}</h2>
       <ul class="space-y-1">
         <li class="font-bold text-green-800">Gasolina: ${gasolinera.price ? gasolinera.price + "€/l" : "No disponible"}</li>
         <li class="font-bold text-green-800">Gasolina Plus: ${gasolinera.priceGasolinaPlus ? gasolinera.priceGasolinaPlus + "€/l" : "No disponible"}</li>
@@ -83,7 +84,7 @@ async function getPetrolStations() {
         <li class="font-bold text-green-900">Gasóleo A Plus: ${gasolinera.priceDieselPlus ? gasolinera.priceDieselPlus + "€/l" : "No disponible"}</li>
         <li class="font-bold text-blue-600">AdBlue: ${gasolinera.priceAdBlue ? gasolinera.priceAdBlue + "€/l" : "No disponible"}</li>
       </ul>
-      <h2 class="mt-4 font-bold text-center">${gasolinera.logo} - ${gasolinera.localidad}</h2>
+      <h1 class="text-lg font-semibold mb-2 text-center">${gasolinera.direction}</h1>
     `;
 
     div.style.backgroundImage = `url(./src/img/${gasolinera.logo}.png)`;
