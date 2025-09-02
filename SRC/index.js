@@ -71,13 +71,13 @@ async function getPetrolStations() {
       "rounded-xl",
       "transition",
       "duration-300",
-      "hover:scale-105"
+      "hover:scale-105",
     );
 
     div.innerHTML = `
       
       <h2 class="mt-4 font-bold text-center">${gasolinera.logo} - ${gasolinera.localidad}</h2>
-      <ul class="space-y-1">
+      <ul class="space-y-1 p-4">
         <li class="font-bold text-green-800">Gasolina: ${gasolinera.price ? gasolinera.price + "€/l" : "No disponible"}</li>
         <li class="font-bold text-green-800">Gasolina Plus: ${gasolinera.priceGasolinaPlus ? gasolinera.priceGasolinaPlus + "€/l" : "No disponible"}</li>
         <li class="font-bold text-green-900">Gasóleo A: ${gasolinera.priceDiesel ? gasolinera.priceDiesel + "€/l" : "No disponible"}</li>
