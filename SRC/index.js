@@ -60,20 +60,20 @@ gasofas.forEach((gasolinera) => {
   const precios = [];
 
   if (gasolinera.price)
-    precios.push(`<span class="">Gasolina 95: <span class="font-bold">${gasolinera.price} €/L&nbsp;</span></span>`);
+    precios.push(`<span class=" font-extrabold text-lime-600 ">Gasolina 95: <span class=" font-bold">${gasolinera.price} €/L&nbsp;</span></span>`);
   if (gasolinera.priceGasolinaPlus)
-    precios.push(`<span class="">Gasolina 95+: <span class="font-bold">${gasolinera.priceGasolinaPlus} €/L&nbsp;</span></span>`);
+    precios.push(`<span class="font-extrabold text-lime-600 ">Gasolina 95+: <span class=" font-bold">${gasolinera.priceGasolinaPlus} €/L&nbsp;</span></span>`);
   if (gasolinera.priceDiesel)
-    precios.push(`<span class="">Gasóleo A: <span class="font-bold">${gasolinera.priceDiesel} €/L&nbsp;</span></span>`);
+    precios.push(`<span class="font-extrabold ">Gasóleo A: <span class="font-bold">${gasolinera.priceDiesel} €/L&nbsp;</span></span>`);
   if (gasolinera.priceDieselPlus)
-    precios.push(`<span class="">Gasóleo A+: <span class="font-bold">${gasolinera.priceDieselPlus} €/L&nbsp;</span></span>`);
+    precios.push(`<span class="font-extrabold ">Gasóleo A+: <span class="font-bold">${gasolinera.priceDieselPlus} €/L&nbsp;</span></span>`);
   if (gasolinera.priceAdBlue)
-    precios.push(`<span class="font-bold text-blue-900">AdBlue: ${gasolinera.priceAdBlue} €/L&nbsp;</span>`);
+    precios.push(`<span class="font-extrabold text-blue-900 ">AdBlue:<span class="font-bold">${gasolinera.priceAdBlue} €/L&nbsp;</span>  </span>`);
 
 card.classList.add(
   "bg-green-200",
   "p-4",
-  "text-green-900",
+  "text-green-700",
   "rounded-lg",
   "shadow-md",
   "hover:shadow-lg",
