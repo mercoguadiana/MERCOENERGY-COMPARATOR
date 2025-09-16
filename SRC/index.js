@@ -68,7 +68,7 @@ gasofas.forEach((gasolinera) => {
   if (gasolinera.priceDieselPlus)
     precios.push(`<span class="font-extrabold ">Gasóleo A+: <span class="font-bold">${gasolinera.priceDieselPlus} €/L&nbsp;</span></span>`);
   if (gasolinera.priceAdBlue)
-    precios.push(`<span class="font-extrabold text-blue-900 ">AdBlue:<span class="font-bold">${gasolinera.priceAdBlue} €/L&nbsp;</span>  </span>`);
+    precios.push(`<span class="font-extrabold text-blue-900 ">AdBlue: <span class="font-bold">${gasolinera.priceAdBlue} €/L&nbsp;</span>  </span>`);
 
 card.classList.add(
   "bg-green-200",
