@@ -4,6 +4,17 @@ const container = document.getElementById("container");
 // IDs de municipios que quieres consultar
 const municipios = ["717", "732"];
 
+// Orden deseado de logos
+const ordenLogos = [
+  "MERCOENERGY",
+  "BALLENOIL",
+  "TIERRASGORDAS",
+  "PETROCAR",  
+  "SAD. COOP. VEGAS BAJAS",
+  "EXPLOTACIONES GASOAL SL"
+];
+const ultimas = ["CEPSA", "REPSOL"];
+
 async function getPetrolStations() {
   container.innerHTML = "";
 
@@ -55,12 +66,31 @@ async function getPetrolStations() {
     });
   }
 
-  // Ordenar: MERCOENERGY primero, REPSOL y CEPSA al final
+  // Ordenar: primero los de ordenLogos, luego los que no están en ninguna lista, luego CEPSA y REPSOL
   gasofas.sort((a, b) => {
-    if (a.logo === "MERCOENERGY") return -1;
-    if (b.logo === "MERCOENERGY") return 1;
-    if (a.logo === "REPSOL" || a.logo === "CEPSA") return 1;
-    if (b.logo === "REPSOL" || b.logo === "CEPSA") return -1;
+    const idxA = ordenLogos.indexOf(a.logo);
+    const idxB = ordenLogos.indexOf(b.logo);
+
+    const isUltimaA = ultimas.indexOf(a.logo);
+    const isUltimaB = ultimas.indexOf(b.logo);
+
+    // Si ambos están en ordenLogos
+    if (idxA !== -1 && idxB !== -1) return idxA - idxB;
+    // Si solo a está en ordenLogos
+    if (idxA !== -1) return -1;
+    // Si solo b está en ordenLogos
+    if (idxB !== -1) return 1;
+
+    // Si ambos están en ultimas
+    if (ultimas.includes(a.logo) && ultimas.includes(b.logo)) {
+      return ultimas.indexOf(a.logo) - ultimas.indexOf(b.logo);
+    }
+    // Si solo a está en ultimas
+    if (ultimas.includes(a.logo)) return 1;
+    // Si solo b está en ultimas
+    if (ultimas.includes(b.logo)) return -1;
+
+    // Si ninguno está en ninguna lista, mantener el orden original
     return 0;
   });
 
@@ -100,11 +130,11 @@ async function getPetrolStations() {
       "border-2"
     );
 
-    // Color especial para MERCOENERGY
+    // Solo MERCOENERGY con estilo único
     if (gasolinera.logo !== "MERCOENERGY") {
-      card.classList.add("bg-green-500", "text-green-200", "border-green-200");
+      card.classList.add("bg-green-600", "text-white", "border-green-900", "ring-4", "ring-green-300");
     } else {
-      card.classList.add("bg-green-200", "text-green-700", "border-green-500");
+      card.classList.add("bg-green-200", "text-green-900", "border-green-400");
     }
 
     card.innerHTML = `
