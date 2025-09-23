@@ -55,58 +55,70 @@ async function getPetrolStations() {
     });
   }
 
-gasofas.forEach((gasolinera) => {
-  let card = document.createElement("div");
-  const precios = [];
+  // Ordenar: MERCOENERGY primero, REPSOL y CEPSA al final
+  gasofas.sort((a, b) => {
+    if (a.logo === "MERCOENERGY") return -1;
+    if (b.logo === "MERCOENERGY") return 1;
+    if (a.logo === "REPSOL" || a.logo === "CEPSA") return 1;
+    if (b.logo === "REPSOL" || b.logo === "CEPSA") return -1;
+    return 0;
+  });
 
-  if (gasolinera.price)
-    precios.push(`<span class=" font-extrabold text-lime-600 ">Gasolina 95: <span class=" font-bold">${gasolinera.price} €/L&nbsp;</span></span>`);
-  if (gasolinera.priceGasolinaPlus)
-    precios.push(`<span class="font-extrabold text-lime-600 ">Gasolina 95+: <span class=" font-bold">${gasolinera.priceGasolinaPlus} €/L&nbsp;</span></span>`);
-  if (gasolinera.priceDiesel)
-    precios.push(`<span class="font-extrabold ">Gasóleo A: <span class="font-bold">${gasolinera.priceDiesel} €/L&nbsp;</span></span>`);
-  if (gasolinera.priceDieselPlus)
-    precios.push(`<span class="font-extrabold ">Gasóleo A+: <span class="font-bold">${gasolinera.priceDieselPlus} €/L&nbsp;</span></span>`);
-  if (gasolinera.priceAdBlue)
-    precios.push(`<span class="font-extrabold text-blue-900 ">AdBlue: <span class="font-bold">${gasolinera.priceAdBlue} €/L&nbsp;</span>  </span>`);
+  gasofas.forEach((gasolinera) => {
+    let card = document.createElement("div");
+    const precios = [];
 
-card.classList.add(
-  "bg-green-200",
-  "p-4",
-  "text-green-700",
-  "rounded-lg",
-  "shadow-md",
-  "hover:shadow-lg",
-  "hover:scale-105",
-  "transform",
-  "transition-transform",
-  "transition-shadow",
-  "duration-300",
-  "ease-in-out",
-  "w-full",
-  "max-w-md",         // Tamaño base
-  "md:max-w-lg",      // Más grande en pantallas medianas
-  "lg:max-w-xl",      // Aún más grande en pantallas grandes
-  "xl:max-w-2xl",     // Extra grande en pantallas muy grandes
-  "mx-auto",
-  "border-2",
-  "border-green-500"
-);
+    if (gasolinera.price)
+      precios.push(`<span class="font-extrabold text-black">Gasolina 95: <span class="font-bold">${gasolinera.price} €/L&nbsp;</span></span>`);
+    if (gasolinera.priceGasolinaPlus)
+      precios.push(`<span class="font-extrabold text-black">Gasolina 95+: <span class="font-bold">${gasolinera.priceGasolinaPlus} €/L&nbsp;</span></span>`);
+    if (gasolinera.priceDiesel)
+      precios.push(`<span class="font-extrabold">Gasóleo A: <span class="font-bold">${gasolinera.priceDiesel} €/L&nbsp;</span></span>`);
+    if (gasolinera.priceDieselPlus)
+      precios.push(`<span class="font-extrabold">Gasóleo A+: <span class="font-bold">${gasolinera.priceDieselPlus} €/L&nbsp;</span></span>`);
+    if (gasolinera.priceAdBlue)
+      precios.push(`<span class="font-extrabold text-blue-900">AdBlue: <span class="font-bold">${gasolinera.priceAdBlue} €/L&nbsp;</span></span>`);
 
+    // Clases base para todas las cards
+    card.classList.add(
+      "p-4",
+      "rounded-lg",
+      "shadow-md",
+      "hover:shadow-lg",
+      "hover:scale-105",
+      "transform",
+      "transition-transform",
+      "transition-shadow",
+      "duration-300",
+      "ease-in-out",
+      "w-full",
+      "max-w-md",
+      "md:max-w-lg",
+      "lg:max-w-xl",
+      "xl:max-w-2xl",
+      "mx-auto",
+      "border-2"
+    );
 
-  card.innerHTML = `
-    <div class="flex flex-col items-center mb-2">
-      <h2 class="font-bold text-center">${gasolinera.logo} - ${gasolinera.localidad}</h2>
-      <h1 class="text-center font-extralight italic">${gasolinera.direction}</h1>
-    </div>
-    <div class="flex flex-col items-start space-y-1 w-full">
-      ${precios.join("")}
-    </div>
-  `;
+    // Color especial para MERCOENERGY
+    if (gasolinera.logo !== "MERCOENERGY") {
+      card.classList.add("bg-green-500", "text-green-200", "border-green-200");
+    } else {
+      card.classList.add("bg-green-200", "text-green-700", "border-green-500");
+    }
 
-  container.appendChild(card);
-});
+    card.innerHTML = `
+      <div class="flex flex-col items-center mb-2">
+        <h2 class="font-bold text-center">${gasolinera.logo} - ${gasolinera.localidad}</h2>
+        <h1 class="text-center font-extralight italic">${gasolinera.direction}</h1>
+      </div>
+      <div class="flex flex-col items-start space-y-1 w-full">
+        ${precios.join("")}
+      </div>
+    `;
 
+    container.appendChild(card);
+  });
 }
 
 getPetrolStations();
