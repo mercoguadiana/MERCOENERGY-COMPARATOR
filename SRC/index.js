@@ -86,15 +86,15 @@ async function getPetrolStations() {
     const precios = [];
 
     if (gasolinera.price)
-      precios.push(`<span class="font-semibold text-green-700">Gasolina 95: <span class="font-bold">${gasolinera.price} €/L</span></span>`);
+      precios.push(`<span class="font-semibold text-xl text-green-700">Gasolina 95: <span class="font-bold">${gasolinera.price} €/L</span></span>`);
     if (gasolinera.priceGasolinaPlus)
-      precios.push(`<span class="font-semibold text-green-700">Gasolina 95+: <span class="font-bold">${gasolinera.priceGasolinaPlus} €/L</span></span>`);
+      precios.push(`<span class="font-semibold text-xl text-green-700">Gasolina 95+: <span class="font-bold">${gasolinera.priceGasolinaPlus} €/L</span></span>`);
     if (gasolinera.priceDiesel)
-      precios.push(`<span class="font-semibold text-gray-700">Gasóleo A: <span class="font-bold">${gasolinera.priceDiesel} €/L</span></span>`);
+      precios.push(`<span class="font-semibold text-xl text-gray-700">Gasóleo A: <span class="font-bold">${gasolinera.priceDiesel} €/L</span></span>`);
     if (gasolinera.priceDieselPlus)
-      precios.push(`<span class="font-semibold text-gray-700">Gasóleo A+: <span class="font-bold">${gasolinera.priceDieselPlus} €/L</span></span>`);
+      precios.push(`<span class="font-semibold text-xl text-gray-700">Gasóleo A+: <span class="font-bold">${gasolinera.priceDieselPlus} €/L</span></span>`);
     if (gasolinera.priceAdBlue)
-      precios.push(`<span class="font-semibold text-blue-600">AdBlue: <span class="font-bold">${gasolinera.priceAdBlue} €/L</span></span>`);
+      precios.push(`<span class="font-semibold text-xl text-blue-600">AdBlue: <span class="font-bold">${gasolinera.priceAdBlue} €/L</span></span>`);
 
     // Estilo corporativo general
     card.classList.add(
@@ -127,9 +127,9 @@ async function getPetrolStations() {
 
     card.innerHTML = `
       <div class="flex flex-col items-center mb-2 text-center">
-        <h2 class="font-bold text-xl text-green-700">${gasolinera.logo}</h2>
-        <h3 class="text-gray-600 text-sm italic">${gasolinera.localidad}</h3>
-        <p class="text-gray-500 text-xs">${gasolinera.direction}</p>
+        <h2 class="font-bold text-2xl text-green-700">${gasolinera.logo}</h2>
+        <h3 class="text-gray-600 text-xl italic">${gasolinera.localidad}</h3>
+        <p class="text-gray-500 text-sm">${gasolinera.direction}</p>
       </div>
 
       <div class="flex flex-col items-start space-y-1 w-full text-sm">
