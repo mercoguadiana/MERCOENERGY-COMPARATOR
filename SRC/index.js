@@ -20,7 +20,7 @@ const ultimas = ["CEPSA", "REPSOL"];
 async function getPetrolStations() {
   container.innerHTML = "";
 
-  let gasofas = [];
+  let carburantes = [];
 
   for (let id of municipios) {
     let API = apiGob + id;
@@ -59,12 +59,12 @@ async function getPetrolStations() {
         localidad: localidad,
       };
 
-      gasofas.push(obj);
+      carburantes.push(obj);
     });
   }
 
   // Ordenar personalizadamente
-  gasofas.sort((a, b) => {
+  carburantes.sort((a, b) => {
     const idxA = ordenLogos.indexOf(a.logo);
     const idxB = ordenLogos.indexOf(b.logo);
 
@@ -81,7 +81,7 @@ async function getPetrolStations() {
     return 0;
   });
 
-  gasofas.forEach((gasolinera) => {
+  carburantes.forEach((gasolinera) => {
     let card = document.createElement("div");
     const precios = [];
 
